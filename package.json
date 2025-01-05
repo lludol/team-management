@@ -1,0 +1,39 @@
+{
+  "name": "team-management",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint --fix",
+    "migrate:new": "kysely migrate make",
+    "migrate:latest": "kysely migrate latest",
+    "migrate:list": "kysely migrate list",
+    "generate": "kysely-codegen --out-file ./lib/db.d.ts"
+  },
+  "dependencies": {
+    "@types/pg": "^8.11.10",
+    "formik": "^2.4.6",
+    "kysely": "^0.27.5",
+    "next": "15.1.3",
+    "pg": "^8.13.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "yup": "^1.6.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "daisyui": "^4.12.23",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.3",
+    "kysely-codegen": "^0.17.0",
+    "kysely-ctl": "^0.10.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

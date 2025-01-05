@@ -1,0 +1,15 @@
+services:
+    postgres:
+        image: postgres:16
+        container_name: team_management_postgres
+        environment:
+            POSTGRES_USER: team_management
+            POSTGRES_PASSWORD: team_management
+            POSTGRES_DB: team_management
+        ports:
+            - "5432:5432"
+        volumes:
+            - team_management:/var/lib/postgresql
+
+volumes:
+    team_management:
