@@ -1,11 +1,11 @@
-import { Member } from "@/models/Member";
+import type { Members } from "@/data/member.data";
 import { TeamBody } from "@/models/Team";
 import { Field, useFormikContext } from "formik";
 import { useCallback, useMemo, useState } from "react";
 
 interface Props {
 	disabled: boolean;
-	availableMembers: Member[];
+	availableMembers: Members;
 }
 
 const TeamFormMembers = ({

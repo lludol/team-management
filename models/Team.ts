@@ -10,13 +10,6 @@ export interface TeamMember {
 	role: string;
 }
 
-export interface Team {
-	id: number;
-	name: string;
-	parent_team_id: number | null;
-	members: Array<TeamMember>;
-}
-
 export interface TeamNode {
 	id: number;
 	name: string;
