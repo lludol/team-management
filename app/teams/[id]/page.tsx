@@ -10,7 +10,7 @@ export default async function Team({
 	params: Promise<{ id: string }>,
 }) {
 	const teamId = (await params).id;
-	const team = await getTeam(teamId);
+	const team = await getTeam(Number.parseInt(teamId, 10));
 	const teams = await getTeams();
 	const members = await getMembers();
 

@@ -4,15 +4,16 @@ import { Field, Form, Formik } from 'formik';
 import { useCallback } from 'react';
 import * as Yup from 'yup';
 import { useRouter } from 'next/navigation';
-import { Team, TeamBody } from '@/models/Team';
-import { createTeam, updateTeam } from '@/data/team.data';
+import { TeamBody } from '@/models/Team';
 import TeamFormMembers from './TeamFormMembers';
-import { Member } from '@/models/Member';
+import { createTeam, updateTeam } from '@/data/team.actions';
+import type { Team, Teams } from '@/data/team.data';
+import type { Members } from '@/data/member.data';
 
 interface Props {
-	teams: Team[];
+	teams: Teams;
 	team?: Team;
-	availableMembers: Member[];
+	availableMembers: Members;
 }
 
 const teamValidationSchema = Yup.object({
@@ -33,7 +34,7 @@ const TeamForm = ({
 	const router = useRouter();
 	const onSubmit = useCallback(async (values: TeamBody) => {
 		if (team) {
-			await updateTeam(team.id.toString(), values);
+			await updateTeam(team.id, values);
 		} else {
 			await createTeam(values);
 		}

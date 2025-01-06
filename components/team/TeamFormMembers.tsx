@@ -12,7 +12,6 @@ const TeamFormMembers = ({
 	disabled,
 	availableMembers,
 }: Props) => {
-	console.log('availableMembers', availableMembers);
 	const { values, setFieldValue } = useFormikContext<TeamBody>();
 
 	const [memberIdSelected, setMemberIdSelected] = useState<number>(0);

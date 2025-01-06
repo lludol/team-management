@@ -1,13 +1,17 @@
-import { Member } from "@/models/Member";
-
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+import { db } from "@/lib/kysely";
 
 export const getMembers = async () => {
-	const res = await fetch(`${BASE_URL}/api/members`);
+	try {
+		const members = await db
+			.selectFrom('member')
+			.select(['id', 'name', 'active'])
+			.orderBy('name')
+			.execute();
 
-	if (!res.ok) {
+		return members;
+	} catch (error) {
+		console.error(error);
 		throw new Error('Failed to fetch members');
 	}
-
-	return res.json() as unknown as Member[];
 };
+export type Members = Awaited<ReturnType<typeof getMembers>>;
