@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && migrate:latest",
+    "build": "next build && pnpm run migrate:latest",
     "start": "next start",
     "lint": "next lint --fix",
     "migrate:new": "kysely migrate make",
